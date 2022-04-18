@@ -46,48 +46,9 @@ class BuscaDao
             }
             $funcionario[] = '</div>';
             return $funcionario;
-        } else {
         }
     }
 
-    public function lista_funcionarios_tabela() /////////
-    {
-        $option = null;
-        $resultado = $this->carrega_funcionarios();
-        if (empty($resultado)) {
-            $option .= "<div class='card-body'>
-                            <div class='d-flex justify-content-center'>Nenhum resultado encontrado...</div>
-                        </div>";
-        } else {
-            $option .= "<div class='card-body'>
-                    <table class='table table-hover table-bordered results'>
-                        <thead>
-                            <tr>
-                                <th class='col-md-1'>ID</th>
-                                <th class='col-md-5'>Título</th>
-                                <th class='col-md-2'>Telefone</th>
-                                <th class='col-md-3'>Cidade</th>
-                                <th class='col-md-1'>Ações</th>
-                            </tr>
-                        </thead>
-                  ";
-            $option .= "<tbody>";
-            foreach ($resultado as $result) {
-                $option .= "<tr>
-                            <th class='col-md-1'>" . $result['id'] . "</th>
-                            <td class='col-md-5'>" . $result['razaosocial'] . "</td>
-                            <td class='col-md-2'>" . $result['telefone'] . "</td>
-                            <td class='col-md-3'>" . $result['cidade'] . "</td>
-                            <td class='col-md-1'>Editar</td>
-                        </tr>";
-            }
-            $option .= "</tbody>
-                     </table>
-                </div>";
-        }
-
-        return $option;
-    }
 
     public function carrega_funcionario_detalhe($id)
     {
